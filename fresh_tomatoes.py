@@ -156,9 +156,14 @@ def create_movie_tiles_content(movies):
         if len(movie.directors.split(',')) > 1:
           label_directors = "Directors"
 
+        # Filter out those extra spaces found in the storyline when hover over
+        # the movie poster in the browser. Those extra spaces were introduced
+        # by the backslash during code formatting
+        movie_description = ' '.join(filter(None, movie.storyline.split(' ')))
+
         # trivia: group all related movie info into one trivia class for mouseover effect later
         trivia = "{0} \n\n{1} | {2} | {3}\n{4}: {5}\nActors: {6}\nRelease Date: {7}" \
-                    .format(movie.storyline, movie.rating, movie.type, movie.length, \
+                    .format(movie_description, movie.rating, movie.type, movie.length, \
                                 label_directors, movie.directors, movie.actors, movie.release_date)
 
         # Append the tile for the movie with its content filled in

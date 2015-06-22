@@ -7,7 +7,9 @@ class Movie():
 
     VALID_LISTING = ['G', 'PG', 'PG-13', 'R']       # a constant, a class variable
 
-    def __init__(self, movie_title, movie_storyline, poster_image, trailer_youtube, movie_rating, movie_type, directors, starring, movie_release_date, movie_length):
+    def __init__(self, movie_title, movie_storyline, poster_image,
+                        trailer_youtube, movie_rating, movie_type, directors,
+                        starring, movie_release_date, movie_length):
         """ The constructor that will create unique space for instance of Movie. """
         self.title = movie_title
         self.storyline = movie_storyline
